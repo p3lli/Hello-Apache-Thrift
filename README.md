@@ -1,7 +1,7 @@
 Apache Thrift - Esempio base
 ============================
 
-Il repository contiene un esempio in Java di comunicazione server-client, in cui classe service è creata automaticamente utilizzando la libreria [Apache Thrift](https://thrift.apache.org/).  
+Il repository contiene un esempio in Java di comunicazione server-client, in cui la classe service è creata automaticamente utilizzando la libreria [Apache Thrift](https://thrift.apache.org/).  
 
 L'esempio è ispirato al [Quickstart di Dzone](https://dzone.com/articles/apache-thrift-java-quickstart).  
 
@@ -12,7 +12,7 @@ Per installare `thrift` è sufficiente seguire le istruzioni raccolte sul sito u
 
 * la versione di `libboost` consigliata sul sito è troppo vecchia (ho dovuto installare la v.1.58.)
 * ANT è necessario per poter generare le classi Java con `thrift`
-* `export LD_LIBRARY_PATH=/usr/local/lib/:${LD_LIBRARY_PATH}`
+* è stato necessario aggiungere `export LD_LIBRARY_PATH=/usr/local/lib/:${LD_LIBRARY_PATH}` nel file `.bashrc`
 
 
 Utilizzo di Thrift
@@ -20,7 +20,7 @@ Utilizzo di Thrift
 
 Per generare la classe `AdditionService.java` è utilizzato il file `add.thrift` nel seguente modo:  
 `thrift --gen java -out ./thrift-sample-server/src/main/java/ add.thrift `  
-Le restanti classi di server e client sono costruite a mano.  
+Le restanti classi dei pacchetti server e client sono costruite a mano.  
 
 Organizzazione con Maven
 ------------------------
@@ -30,7 +30,7 @@ I pacchetti server, client e parent sono stati "pommizzati" per automatizzare la
 Per generare insieme i due file .jar, spostarsi in `thrift-sample-parent` e digitare:  
 `mvn clean install`  
 
-Per generare uno solo dei jar, spostarsi nella cartella desiderata e digitare:  
+Per generare uno solo dei file .jar, spostarsi nella cartella desiderata e digitare:  
 `mvn clean compile assembly:single`  
 In questo modo saranno generati i file .jar contenenti le dipendenze necessarie.  
 
